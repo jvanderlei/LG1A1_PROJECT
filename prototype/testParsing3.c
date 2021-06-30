@@ -8,13 +8,13 @@ int main()
 	setlocale(LC_ALL,"Portuguese");
 
 	
-    char str[336];
+    char str[338];
     int result, i;
     
  	FILE* f = fopen("TESTE_SISTEMA_REPRESENTACIONAL.txt", "r");
     
     for (result = 0; result != EOF;) {
-    	result = fscanf(f, "%336[^;|\n]", str);
+    	result = fscanf(f, "%338[^;|\n]", str);
 
     	if (result == 0){
     		result = fscanf(f, "%c");
@@ -27,6 +27,6 @@ int main()
 	//	printf("O seu valor de 'i' : %d\n", i);
 	//	}
 
-	printf("A§ : ç; A£ : ã; Aµ : õ; é; A% : É; Aª : ê; A  : à; ú; A- : í; ô; A3 : ó; â; A¡ : á");
+	printf("AÂ§ : Ã§; AÂ£ : Ã£; AÂµ : Ãµ; Ã©; A% : Ã‰; AÂª : Ãª; AÂ  : Ã ; Ãº; A- : Ã­; Ã´; A3 : Ã³; Ã¢; AÂ¡ : Ã¡");
     return 0;
 }
