@@ -1,6 +1,6 @@
 // Documentation Section:
 /* 
-   Author: Gabriel Samori Parreira & Jo„o Pedro Vanderlei 
+   Author: Gabriel Samori Parreira & Jo√£o Pedro Vanderlei 
    Date: 17 de Junho de 2021
    Description: Projeto Semestral LG1A1
 */
@@ -42,40 +42,4 @@ char line[1024];
 		free(test);
 	}
 
-}
-
-//Secondary functions:
-//the login() function:
-void login(){
-	
-}
-
-//the master() function:
-void master(){
-	
-}
-
-//the cadastrar() function:
-void cadastrar(){
-	
-}
-
-//the visualizar() function:
-void visualizar(){
-	
-}
-
-//the realizar() function:
-void realizar(){
-	
-}
-
-//the about() function:
-void about(){
-	
-}
-
-//the resultado() function:
-void resultado(){
-	
 }
