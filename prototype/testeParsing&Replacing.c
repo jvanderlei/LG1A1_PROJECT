@@ -68,28 +68,28 @@ int main()
 			}
 		}
 	}
-		/*  replacestr(str, "A§", "ç");
-			replacestr(str, "A£", "ã");
-			replacestr(str, "Aµ", "õ");
-			replacestr(str, "A%", "É");
-			replacestr(str, "Aª", "ê");
-			replacestr(str, "A ", "à");
-			replacestr(str, "A-", "í");
-			replacestr(str, "A3", "ó");
-			replacestr(str, "A¡", "á"); */
+		/*  replacestr(str, "AÂ§", "Ã§");
+			replacestr(str, "AÂ£", "Ã£");
+			replacestr(str, "AÂµ", "Ãµ");
+			replacestr(str, "A%", "Ã‰");
+			replacestr(str, "AÂª", "Ãª");
+			replacestr(str, "AÂ ", "Ã ");
+			replacestr(str, "A-", "Ã­");
+			replacestr(str, "A3", "Ã³");
+			replacestr(str, "AÂ¡", "Ã¡"); */
 	
 	for(i=0;i<6;i++)
 	{
-	for(j=0;j<8;j++)
-	{
-	for(aux=0;aux<70;aux++)
-	{
-	printf("\t%c", tabela[i][j][aux]);
+		for(j=0;j<8;j++)
+		{
+			for(aux=0;aux<70;aux++)
+			{
+				printf("\t%c", tabela[i][j][aux]);
+			}
+			printf("\n");
+		}
+		printf("\n");
 	}
-	printf("\n");
-	}
-	printf("\n");
-	}
-	printf("A§ : ç; A£ : ã; Aµ : õ; é; A% : É; Aª : ê; A  : à; ú; A- : í; ô; A3 : ó; â; A¡ : á");
+	printf("AÂ§ : Ã§; AÂ£ : Ã£; AÂµ : Ãµ; Ã©; A% : Ã‰; AÂª : Ãª; AÂ  : Ã ; Ãº; A- : Ã­; Ã´; A3 : Ã³; Ã¢; AÂ¡ : Ã¡");
     return 0;
 }
