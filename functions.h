@@ -1,19 +1,19 @@
 
 /* functions.h */
 
-void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  
+void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  //  
 	char aux[5];
 	int i=0;
 	system("cls");
-	printf(" A função MASTER foi iniciada...\n");
+	printf(" A funÃ§Ã£o MASTER foi iniciada...\n");
 	
-	label1:	//  LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 //
+	label1:	//  LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1  // LABEL 1	// LABEL 1	// LABEL 1 //
 		
 	printf(" ================================================== \n");
 	printf("        TESTE DOS SISTEMAS REPRESENTACIONAIS        \n");
 	printf(" ================================================== \n");
-	printf("        1. Cadastrar questionário                   \n");
-	printf("        2. Visualizar questionário                  \n");
+	printf("        1. Cadastrar questionÃ¡rio                   \n");
+	printf("        2. Visualizar questionÃ¡rio                  \n");
 	printf("        3. Realizar teste                           \n");
 	printf("        4. Sobre o teste                            \n");
 	printf("        F. Fim                                      \n");
@@ -23,7 +23,7 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 	
 	if (strlen(aux) > 1) {
 			system("cls");
-		printf(" Escolha inválida...\n");
+		printf(" Escolha invÃ¡lida...\n");
 		goto label1;
 	}
 	
@@ -31,25 +31,25 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 		
 		case 49:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		cadastrar();
 		break;
 		
 		case 50:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		visualizar();
 		break;
 		
 		case 51:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		realizar();
 		break;
 		
 		case 52:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		sobre();
 		break;
 		
@@ -62,7 +62,7 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 		
 		default:
 			system("cls");
-		printf(" Escolha inválida... \n");
+		printf(" Escolha invÃ¡lida... \n");
 		break;
 		
 	}
@@ -71,19 +71,19 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 
 }
 
-void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  
+void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  //
 
 	setlocale(LC_ALL,"Portuguese");
 
 	char buffer1[255];
 	int i;
 	
-	printf(" A função CADASTRAR foi iniciada...\n");
+	printf(" A funÃ§Ã£o CADASTRAR foi iniciada...\n");
 	sleep(2);
-	printf(" Aqui você poderá registrar um novo questionário de acordo com a sua preferência. \n");
+	printf(" Aqui vocÃª poderÃ¡ registrar um novo questionÃ¡rio de acordo com a sua preferÃªncia. \n");
 	FILE *questRegister, *questNovo;
 	questRegister = fopen("questRegistrados.txt", "a");
-	printf(" Digite o nome do questionário: ");
+	printf(" Digite o nome do questionÃ¡rio: ");
 	gets(buffer1);
 	for (i=0; i<strlen(buffer1); i++) {
 		printf(" buffer1[%d] - char:%c int:%d \n", i, buffer1[i], buffer1[i]);
@@ -92,28 +92,27 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 	fprintf(questRegister, "%s \n", buffer1);
 	fclose(questRegister);
 	sleep(2);
-	printf(" A função CADASTRAR encerrou...\n");
+	printf(" A funÃ§Ã£o CADASTRAR encerrou...\n");
 }
 
-void realizar(char nome[255], char pront[10]) {
-	printf(" A função REALIZAR foi iniciada...\n");
-	printf(" Nome: %s  Prontuário: %s", nome, pront);
+void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //
+	printf(" A funÃ§Ã£o REALIZAR foi iniciada...\n");
+	printf(" Nome: %s  ProntuÃ¡rio: %s", nome, pront);
 }
 
-void visualizar() {
-	printf(" A função VISUALIZAR foi iniciada...\n");
+void visualizar() { // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  //
+	printf(" A funÃ§Ã£o VISUALIZAR foi iniciada...\n");
 }
 
-void sobre() {
-	printf(" A função SOBRE foi iniciada...\n");
+void sobre() { // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE // SOBRE //
+	printf(" A funÃ§Ã£o SOBRE foi iniciada...\n");
 }
 
-void fim() {
-	printf(" A função FIM foi iniciada...\n");
+void fim() { //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //
+	printf(" A funÃ§Ã£o FIM foi iniciada...\n");
 }
 
-int replacestr(char *line, const char *search, const char *replace)
-{
+int replacestr(char *line, const char *search, const char *replace) { // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  //
    int count;
    char *sp; // start of pattern
 
