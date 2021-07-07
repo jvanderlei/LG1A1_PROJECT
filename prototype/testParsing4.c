@@ -18,11 +18,11 @@ int replacestr(char *line, const char *search, const char *replace) //Declaraç�
    }
 // definição inicial das variáveis necessárias:
    count = 1;
-   int sLen = strlen(search);
-   int rLen = strlen(replace);
+   int sLen = strlen(search); //search length
+   int rLen = strlen(replace); //replace length
    if (sLen > rLen) {
       // move from right to left
-      char *src = sp + sLen;
+      char *src = sp + sLen; 
       char *dst = sp + rLen;
       while((*dst = *src) != '\0') { dst++; src++; }
    } else if (sLen < rLen) {
@@ -35,7 +35,7 @@ int replacestr(char *line, const char *search, const char *replace) //Declaraç�
    }
    memcpy(sp, replace, rLen); //copia "replace" pra dentro de "sp" alocando "rLen" bytes de memória
 
-   count += replacestr(sp + rLen, search, replace); //contador pra registrar quantas substituições foram feitas
+   count += replacestr(sp + rLen, search, replace); //contador pra registrar quantas substituições foram feitas e efetuálas em cada repetição de "search" após a primeira
 
    return(count);
 }
