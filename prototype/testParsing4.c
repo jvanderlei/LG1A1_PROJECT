@@ -12,8 +12,8 @@ int replacestr(char *line, const char *search, const char *replace) //Declaraç�
    char *sp; // começo do padrão para leitura da string
 // Tire o comentário abaixo ↓ para que a função printe os parâmetros usados: line, search e replace
    //printf("replacestr(%s, %s, %s)\n", line, search, replace); 
-// Se ele não encontra "search", retorna 0 pois não há o que substituir
-   if ((sp = strstr(line, search)) == NULL) { 
+	
+   if ((sp = strstr(line, search)) == NULL) { // Se ele não encontra a agulha "search" no palheiro "line", retorna 0 pois não há o que substituir
       return(0);
    }
 // definição inicial das variáveis necessárias:
