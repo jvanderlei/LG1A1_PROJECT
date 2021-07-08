@@ -71,28 +71,108 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 
 }
 
-void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  //
-
-	setlocale(LC_ALL,"Portuguese");
+void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  
 
 	char buffer1[255];
-	int i;
+	int i, j, k, qtFrases, qtItens;
+	int aux1 = 0;
 	
 	printf(" A função CADASTRAR foi iniciada...\n");
 	sleep(2);
+	
 	printf(" Aqui você poderá registrar um novo questionário de acordo com a sua preferência. \n");
+	
 	FILE *questRegister, *questNovo;
 	questRegister = fopen("questRegistrados.txt", "a");
+	
 	printf(" Digite o nome do questionário: ");
 	gets(buffer1);
-	for (i=0; i<strlen(buffer1); i++) {
-		printf(" buffer1[%d] - char:%c int:%d \n", i, buffer1[i], buffer1[i]);
-	}
-	printf(" %s\n", buffer1);
-	fprintf(questRegister, "%s \n", buffer1);
+	localeAcc(buffer1);
+
+	printf(" O nome %s foi registrado...\n", buffer1);
+	
+	fprintf(questRegister, "%s\n", buffer1);
+	
 	fclose(questRegister);
+	
+	printf(" Informe quantas frases o questionário terá: ");
+	scanf(" %d", &qtFrases);
+	
+	printf(" Informe quantos itens de resposta terão em cada frase: ");
+	scanf(" %d", &qtItens);
+	fflush(stdin);
+	
+	replacestr(buffer1, " ", "_");
+	strncat(buffer1, ".txt", 4);	
+	questNovo = fopen(buffer1, "w");
+	
+	char quest[qtFrases+1][qtItens+2][255];
+	
+	strcpy(quest[0][0], "NroFrase");
+	strcpy(quest[0][1], "Frase");
+	for (j=2; j<qtItens+2; j++) {
+		sprintf(quest[0][j], "item_%d", j-1);
+		printf("quest[0][%d] : %s\n", j, quest[0][j]);
+	}
+	for (i=1; i<qtFrases+1; i++) {
+		sprintf(quest[i][0], "%d", i);
+		printf("quest[%d][0] : %s\n", i, quest[i][0]);
+	}
+	
+		for (i=1; i<qtFrases+1; i++) {
+			for (j=1; j<qtItens+2; j++) {
+				if (j!=1) {
+					printf(" Informe o %do Item da %da Frase: \n", j-1, i);
+					gets(quest[i][j]);
+					localeAcc(quest[i][j]);
+				} else {
+					printf(" Informe a %da Frase: \n", i);
+					gets(quest[i][j]);
+					localeAcc(quest[i][j]);
+				}
+			}
+		}
+	
+	for (i=0; i<qtFrases+1; i++) {
+		
+		
+		for (j=0; j<qtItens+2; j++) {
+			
+							
+				fprintf(questNovo, "%s", quest[i][j]);
+				
+				for (k=0; k<qtFrases+1; k++) {
+					
+					if (strlen(quest[k][j]) >= aux1) {
+						
+						aux1 = strlen(quest[k][j]);
+						
+					}
+					
+				}
+				aux1 = aux1 - strlen(quest[i][j]);
+				for (k=0; k<aux1; k++) {
+					fprintf(questNovo, " ");
+				}
+				
+			if (j < qtItens+1) {
+				
+				fprintf(questNovo, " , ");
+				
+				}
+			aux1 = 0;
+			}	
+			
+			if (i<qtFrases) {
+				fprintf(questNovo, "\n");
+			}
+	}
+	
+	fclose(questNovo);
+	
 	sleep(2);
 	printf(" A função CADASTRAR encerrou...\n");
+	
 }
 
 void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //
@@ -141,4 +221,64 @@ int replacestr(char *line, const char *search, const char *replace) { // REPLACE
    count += replacestr(sp + rLen, search, replace);
 
    return(count);
+}
+
+int localeAcc(char *line) // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  // LOCALE.H FIX  //
+{
+	int i;
+	int aux = strlen(line);
+	for (i=0; i<aux; i++) {
+		switch ((int)line[i]) {
+
+			case -123 : {
+				line[i] = 224;
+				break;
+			}
+			case -96 : {
+				line[i] = 225;
+				break;
+			}
+			case -125 : {
+				line[i] = 226;
+				break;
+			}
+			case -121 : {
+				line[i] = 231;
+				break;
+			}
+			case -126 : {
+				line[i] = 233;
+				break;
+			}
+			case -120 : {
+				line[i] = 234;
+				break;
+			}
+			case -95 : {
+				line[i] = 237;
+				break;
+			}
+			case -94 : {
+				line[i] = 243;
+				break;
+			}
+			case -109 : {
+				line[i] = 244;
+				break;
+			}
+			case -93 : {
+				line[i] = 250;
+				break;
+			}
+			case -112 : {
+				line[i] = 201;
+				break;
+			}
+			default : {
+				break;
+			}
+			
+			
+		}
+	} 
 }
