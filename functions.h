@@ -200,18 +200,20 @@ void fim() { //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  FIM  //  
 
 int replacestr(char *line, const char *search, const char *replace) { // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  // REPLACE IN STRING  //
    int count;
-   char *sp; // start of pattern
-
-   //printf("replacestr(%s, %s, %s)\n", line, search, replace);
-   if ((sp = strstr(line, search)) == NULL) {
+   char *sp; // começo do padrão para leitura da string
+// Tire o comentário abaixo ↓ para que a função printe os parâmetros usados: line, search e replace
+   //printf("replacestr(%s, %s, %s)\n", line, search, replace); 
+	
+   if ((sp = strstr(line, search)) == NULL) { // Se ele não encontra a agulha "search" no palheiro "line", retorna 0 pois não há o que substituir
       return(0);
    }
+// definição inicial das variáveis necessárias:
    count = 1;
    int sLen = strlen(search);
    int rLen = strlen(replace);
    if (sLen > rLen) {
       // move from right to left
-      char *src = sp + sLen;
+      char *src = sp + sLen; 
       char *dst = sp + rLen;
       while((*dst = *src) != '\0') { dst++; src++; }
    } else if (sLen < rLen) {
@@ -222,9 +224,9 @@ int replacestr(char *line, const char *search, const char *replace) { // REPLACE
       char *dst = sp + rLen + tLen;
       while(dst >= stop) { *dst = *src; dst--; src--; }
    }
-   memcpy(sp, replace, rLen);
+   memcpy(sp, replace, rLen); //copia "replace" pra dentro de "sp" alocando "rLen" bytes de memória
 
-   count += replacestr(sp + rLen, search, replace);
+   count += replacestr(sp + rLen, search, replace); //contador pra registrar quantas substituições foram feitas e efetuá-las em cada repetição de "search" após a primeira
 
    return(count);
 }
