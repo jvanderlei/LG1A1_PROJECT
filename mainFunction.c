@@ -1,6 +1,6 @@
 // Documentation Section:
 /* 
-   Author: Gabriel Samori Parreira & Jo„o Pedro Vanderlei 
+   Author: Gabriel Samori Parreira & Jo√£o Pedro Vanderlei 
    Date: 06 de Julho de 2021
    Description: Projeto Semestral LG1A1
 */
@@ -31,7 +31,7 @@ int main()
 		
 	//Program Statements & Expressions:
 	
-	//IntroduÁ„o:
+	//Introdu√ß√£o:
 	printf("\n ==================================================================================== \n");
 	printf("\n                            INSTITUTO FEDERAL DE SAO PAULO                            \n");
 	printf("\n ==================================================================================== \n\n");
@@ -62,7 +62,7 @@ int main()
 	aux = isspace(nome[0]);
 	
 	if (aux != 0) {
-		printf(" SEU NOME DEVE COME«AR COM UMA LETRA... ");
+		printf(" SEU NOME DEVE COME√áAR COM UMA LETRA... ");
 		goto nameget;
 	}
 	
@@ -75,6 +75,7 @@ int main()
 			gets(buffer1);
 			senha = fopen("senha.txt","r");
 			fscanf(senha, "%s", buffer2);
+			fclose(senha);
 			aux = strcmp(buffer1, buffer2);
 			while(aux != 0) {
 				printf(" Senha incorreta. Digite novamente: ");
@@ -86,7 +87,7 @@ int main()
 		
 		default : 
 		printf(" You are no one! aux : %d\n", aux);
-		printf(" DIGITE SEU PRONTU¡RIO      : ");
+		printf(" DIGITE SEU PRONTU√ÅRIO      : ");
 		gets(pront);
 		realizar(nome, pront);
 	}
@@ -95,7 +96,7 @@ int main()
 
 	//Processamento:
 
-	//SaÌda:
+	//Sa√≠da:
 	
 	return 0;
 }
