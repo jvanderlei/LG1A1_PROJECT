@@ -284,10 +284,12 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     }
     // printf(" %s %s", nome, pront);
     FILE *questResp;
-    strcat(strcat(strcat(nome, " "), pront), ".txt");
-    replacestr(nome," ", "_");
-	printf(" O arquivo %s foi gerado...\n Nele você poderá ver o resultado do questionário.", nome);
-    questResp = fopen(nome, "w");
+    char bufferNome[50];
+    strcpy(bufferNome, "RESULTADO_");
+    strcat(strcat(strcat(strcat(bufferNome, nome), " "), pront), ".txt");
+    replacestr(bufferNome," ", "_");
+	printf(" O arquivo %s foi gerado...\n Nele você poderá ver o resultado do questionário.", bufferNome);
+    questResp = fopen(bufferNome, "w");
 
     for(m = 0; m < 5; m++){
         for(n = 0; n < 4; n++){
