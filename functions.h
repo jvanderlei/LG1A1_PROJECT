@@ -182,14 +182,17 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 }
 
 void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //
-   	setlocale(LC_ALL,"");
+	system("cls");
+	printf(" A função REALIZAR foi iniciada...\n\n");
+	sleep(1);
+	setlocale(LC_ALL,"");
     int x;
     x = 0;
     char perfil[4][30];
-    strcpy(perfil[0], "Auditivo");
-    strcpy(perfil[1], "Digital");
-    strcpy(perfil[2], "Cinestésico");
-    strcpy(perfil[3], "Visual");
+    strcpy(perfil[0], "Cinestésico");
+    strcpy(perfil[1], "Auditivo");
+    strcpy(perfil[2], "Visual");
+    strcpy(perfil[3], "Digital");
 
 //    for(int o = 0; o < 4; o++){
 //        strcpy(perfil[o], <Variavel do perfil representacional>)
@@ -198,14 +201,14 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     char letra[4] = {'A', 'B', 'C', 'D'};
     int res[5][4];
     int soma[4] = {0,0,0,0};
-    int i, y, count;
+    int i, y, k, j, m, n, count;
     int ver[4] = {0, 0, 0, 0};
     i = -2;
     y = 1;
     FILE* fp = fopen("TESTE_SISTEMA_REPRESENTACIONAL_ASCI.txt", "r"); //Nesse arquivo, a maior string possui 69 caracteres, por isso aloquei 70 bytes por string
 
     if (!fp) //Mensagem de erro caso o arquivo não esteja presente no diretório
-        printf("Can't open file\n");
+        printf("Erro na abertura do arquivo...\n");
 
     else {
 
@@ -216,45 +219,51 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
                 if(i == -2 || i == -1 || i == 5){
                    i++;
                 } else {
-                    for(int k = 0; k < 4; k++){
+                    for(k = 0; k < 4; k++){
                         ver[k] = 0;
                     }
-                    printf("Nas frases a seguir, pontue com:\n");
-                    printf("4 a que melhor define você:\n");
-                    printf("3 a próxima que melhor define você:\n");
-                    printf("2 a proxima melhor;\n");
-                    printf("1 a que menos descreve você\n");
-                    printf("Por favor não digite o mesmo numero 2 vezes\n");
+                    printf("\n Nas frases a seguir, pontue com:\n");
+                    printf(" 4 a que melhor te descreve;\n");
+                    printf(" 3 a próxima que melhor descrição;\n");
+                    printf(" 2 a próxima melhor;\n");
+                    printf(" 1 aquela que menos te descreve.\n");
+                    printf("\n Por favor, não digite o mesmo número 2 vezes.\n\n");
 
 
                     char* imprimir = strtok(frase, "[=,]"); //Quebra a string "buffer" sempre que encontra = ou , (ou qualquer outro parametro) e armazena em "imprimir"
+			k = 0;
                     while (imprimir) {
 
-                    if (*imprimir < 53 && *imprimir>=48) {
-                        printf(" %d\n", *imprimir-48); // caso ele leia um número entre 0 e 5, ele printará o número. Serve para ler o No das questões e o valor resposta delas.
+                    if (*imprimir <= 53 && *imprimir>=48) {
+                        // printf(" %d\n", *imprimir-48); // caso ele leia um número entre 0 e 5, ele printará o número. Serve para ler o No das questões e o valor resposta delas.
                     } else {
-                        printf(" %s\n", imprimir); //senão, printará a string de texto. Usada pra ler registrar as questões e possíveis respostas.
+                        if (k == 0) {
+                    		printf(" %s\n", imprimir);
+                    		k++;
+			} else {
+				printf(" %c -) %s\n", letra[k-1], imprimir); //senão, printará a string de texto. Usada pra ler registrar as questões e possíveis respostas.
+                    		k++;
+			}
                     }
-
                     imprimir = strtok(NULL, "[=,]"); //"imprimir" ganha valor NULL quando encontra = ou , (ou qualquer outro parametro) para indicar o fim de "imprimir"
                 }
+			k = 0;
                     printf("\n");
                     count = 0;
-                      for(int j = 0; j < 4;j++){
+                      for(j = 0; j < 4;j++){
                             do {
-                                printf("\n%c -) ", letra[j]);
+                                printf("\n %c -) ", letra[j]);
                                 scanf(" %d", &res[i][j]);
                                 x = res[i][j];
                                 if( x < 1 || x > 4){
-                                    printf("Número inválido");
+                                    printf(" Número inválido");
                                     y = 1;
                                     getchar();
                                 }
                                 else {
                                     y = 0;
                                     if(ver[x-1] == 1) {
-                                        printf("Você não pode repetir os numeros --");
-                                        printf("Escreva novamente a resposta \n");
+                                        printf(" Você não pode repetir os números -- Escreva novamente a resposta \n");
                                         y = 1;
                                     }
                                     else {
@@ -273,14 +282,15 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
         // Close the file
         fclose(fp);
     }
-    printf("%s %s", nome, pront);
+    // printf(" %s %s", nome, pront);
     FILE *questResp;
-    strcat(strcat(nome, " "), pront);
+    strcat(strcat(strcat(nome, " "), pront), ".txt");
     replacestr(nome," ", "_");
+	printf(" O arquivo %s foi gerado...\n Nele você poderá ver o resultado do questionário.", nome);
     questResp = fopen(nome, "w");
 
-    for(int m = 0; m < 5; m++){
-        for(int n = 0; n < 4; n++){
+    for(m = 0; m < 5; m++){
+        for(n = 0; n < 4; n++){
             soma[n] += res[m][n];
         }
     }
@@ -289,9 +299,9 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     char perfilBigger[30];
     bigger = 0;
     fprintf(questResp, "%s", "Resultados");
-    fprintf(questResp,"%s", "\n =====================================================================================================================================\n");
+    fprintf(questResp,"%s", "\n======================================================================================================================================\n");
 
-    for(int m = 0; m < 4; m++){
+    for(m = 0; m < 4; m++){
         fprintf(questResp,"   %d %%   %s", 2* soma[m], perfil[m]);
         if(soma[m] > bigger){
             bigger = soma[m];
@@ -301,13 +311,13 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     }
 
     //char fras[300] = "Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n";
-    fprintf(questResp,"%s", "\n =====================================================================================================================================\n");
-    fprintf(questResp,"%s", " Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n");
-    fprintf(questResp,"%s","Outras pessoas sentem necessidade de perguntar muito, necessitam de muitas informações e fatos. Estas são as digitais.\n");
-    fprintf(questResp,"%s","As cinestésicas aprendem melhor por meio das sensações táteis, como o tato, a temperatura, a umidade, as sensações internas e as emoções.\n");
-    fprintf(questResp,"%s","Já as pessoas visuais aprendem melhor quando se valendo da visão.\n");
-    fprintf(questResp,"%s %s","O seu perfil representacional é:", perfilBigger);
-    fprintf(questResp,"%s", "\n =====================================================================================================================================\n");
+    fprintf(questResp,"%s", "\n======================================================================================================================================\n");
+    fprintf(questResp,"%s", "Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n");
+    fprintf(questResp,"%s", "Outras pessoas sentem necessidade de perguntar muito, necessitam de muitas informações e fatos. Estas são as digitais.\n");
+    fprintf(questResp,"%s", "As cinestésicas aprendem melhor por meio das sensações táteis, como o tato, a temperatura, a umidade, as sensações internas e as emoções.\n");
+    fprintf(questResp,"%s", "Já as pessoas visuais aprendem melhor quando se valem da visão.\n");
+    fprintf(questResp,"%s %s", "O seu perfil representacional é:", perfilBigger);
+    fprintf(questResp,"%s", "\n======================================================================================================================================\n");
 
     return 0;
 
