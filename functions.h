@@ -44,7 +44,7 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 		case 51:
 			system("cls");
 		printf(" O número %d foi escolhido. \n", aux[0]-48);
-		realizar();
+		realizar("MASTER", "MASTER");
 		break;
 		
 		case 52:
