@@ -182,9 +182,9 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 }
 
 void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //
-	system("cls");
 	printf(" A função REALIZAR foi iniciada...\n\n");
-	sleep(1);
+	sleep(2);
+	system("cls");
 	setlocale(LC_ALL,"");
     int x;
     x = 0;
@@ -323,7 +323,6 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	
 	sleep(1);
 	printf("\n\n A função REALIZAR encerrou...\n);
-	return 0;
 }
 
 void visualizar() { // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  //
