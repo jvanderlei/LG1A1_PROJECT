@@ -322,7 +322,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     fclose(questResp);
 	
 	sleep(1);
-	printf("\n\n A função REALIZAR encerrou...\n);
+	printf("\n\n A função REALIZAR encerrou...\n");
 }
 
 void visualizar() { // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  //
