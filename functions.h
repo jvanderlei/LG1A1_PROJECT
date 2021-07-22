@@ -311,18 +311,19 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     }
 
     //char fras[300] = "Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n";
-    fprintf(questResp,"%s", "\n======================================================================================================================================\n");
+    fprintf(questResp,"%s", "\n=========================================================================================================================================\n");
     fprintf(questResp,"%s", "Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n");
     fprintf(questResp,"%s", "Outras pessoas sentem necessidade de perguntar muito, necessitam de muitas informações e fatos. Estas são as digitais.\n");
     fprintf(questResp,"%s", "As cinestésicas aprendem melhor por meio das sensações táteis, como o tato, a temperatura, a umidade, as sensações internas e as emoções.\n");
     fprintf(questResp,"%s", "Já as pessoas visuais aprendem melhor quando se valem da visão.\n");
     fprintf(questResp,"%s %s", "O seu perfil representacional é:", perfilBigger);
-    fprintf(questResp,"%s", "\n======================================================================================================================================\n");
-
-    return 0;
-
+    fprintf(questResp,"%s", "\n=========================================================================================================================================\n");
 
     fclose(questResp);
+	
+	sleep(1);
+	printf("\n\n A função REALIZAR encerrou...\n);
+	return 0;
 }
 
 void visualizar() { // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  // VISUALIZAR  //
