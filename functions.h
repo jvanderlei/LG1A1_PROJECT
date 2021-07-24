@@ -5,15 +5,15 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 	char aux[5];
 	int i=0;
 	system("cls");
-	printf(" A função MASTER foi iniciada...\n");
+	printf(" A funÃ§Ã£o MASTER foi iniciada...\n");
 	
 	label1:	//  LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1	// LABEL 1 // LABEL 1	// LABEL 1	//
 		
 	printf(" ================================================== \n");
 	printf("        TESTE DOS SISTEMAS REPRESENTACIONAIS        \n");
 	printf(" ================================================== \n");
-	printf("        1. Cadastrar questionário                   \n");
-	printf("        2. Visualizar questionário                  \n");
+	printf("        1. Cadastrar questionÃ¡rio                   \n");
+	printf("        2. Visualizar questionÃ¡rio                  \n");
 	printf("        3. Realizar teste                           \n");
 	printf("        4. Sobre o teste                            \n");
 	printf("        F. Fim                                      \n");
@@ -23,7 +23,7 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 	
 	if (strlen(aux) > 1) {
 			system("cls");
-		printf(" Escolha inválida...\n");
+		printf(" Escolha invÃ¡lida...\n");
 		goto label1;
 	}
 	
@@ -31,25 +31,25 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 		
 		case 49:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		cadastrar();
 		break;
 		
 		case 50:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		visualizar();
 		break;
 		
 		case 51:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		realizar("MASTER", "MASTER");
 		break;
 		
 		case 52:
 			system("cls");
-		printf(" O número %d foi escolhido. \n", aux[0]-48);
+		printf(" O nÃºmero %d foi escolhido. \n", aux[0]-48);
 		sobre();
 		break;
 		
@@ -62,7 +62,7 @@ void master() { // MASTER  // MASTER  // MASTER  // MASTER  // MASTER  // MASTER
 		
 		default:
 			system("cls");
-		printf(" Escolha inválida... \n");
+		printf(" Escolha invÃ¡lida... \n");
 		break;
 		
 	}
@@ -78,15 +78,15 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 	int i, j, k, qtFrases, qtItens;
 	int aux1 = 0;
 	
-	printf(" A função CADASTRAR foi iniciada...\n");
+	printf(" A funÃ§Ã£o CADASTRAR foi iniciada...\n");
 	sleep(2);
 	
-	printf(" Aqui você poderá registrar um novo questionário de acordo com a sua preferência. \n");
+	printf(" Aqui vocÃª poderÃ¡ registrar um novo questionÃ¡rio de acordo com a sua preferÃªncia. \n");
 	
 	FILE *questRegister, *questNovo, *valoresRegister, *sobre;
 	questRegister = fopen("questRegistrados.txt", "a");
 	
-	printf(" Digite o nome do questionário: ");
+	printf(" Digite o nome do questionÃ¡rio: ");
 	gets(buffer1);
 	localeAcc(buffer1);
 	replacestr(buffer1, " ", "_");
@@ -97,19 +97,19 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 	char buffer3[50];
 	sprintf(buffer3, "sobre_%s", buffer1);
 	sobre = fopen(buffer3, "w");
-	fprintf(sobre, "%s","REFERENCIAL TEÓRICO\n");
+	fprintf(sobre, "%s","REFERENCIAL TEÃ“RICO\n");
 	fprintf(sobre, "%s", "-------------------\n\n\n");
 	fclose(sobre);
-	printf(" Um arquivo chamado 'sobre_%s' foi criado onde você poderá informar o referencial teórico deste questionároio.\n", buffer1);
+	printf(" Um arquivo chamado 'sobre_%s' foi criado onde vocÃª poderÃ¡ informar o referencial teÃ³rico deste questionÃ¡roio.\n", buffer1);
 	
 	fprintf(questRegister, "\n%s", buffer1);
 	
 	fclose(questRegister);
 	
-	printf(" Informe quantas frases o questionário terá: ");
+	printf(" Informe quantas frases o questionÃ¡rio terÃ¡: ");
 	scanf(" %d", &qtFrases);
 	
-	printf(" Informe quantos itens de resposta terão em cada frase: ");
+	printf(" Informe quantos itens de resposta terÃ£o em cada frase: ");
 	scanf(" %d", &qtItens);
 	
 	fflush(stdin);
@@ -128,7 +128,7 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 			localeAcc(valorResp[i]);
 			fprintf(valoresRegister, "%s\n", valorResp[i]);
 		} else {
-			printf( " Escreva a descrição que aparecerá no resultado do questionário junto a este valor resposta: ");
+			printf( " Escreva a descriÃ§Ã£o que aparecerÃ¡ no resultado do questionÃ¡rio junto a este valor resposta: ");
 			gets(valorResp[i]);
 			localeAcc(valorResp[i]);
 			if (i == (2*qtItens)-1) {
@@ -151,14 +151,14 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 	strcpy(quest[0][1], "Frase");
 	for (j=2; j<qtItens+2; j++) {
 		sprintf(quest[0][j], "item_%d", j-1);
-		printf("quest[0][%d] : %s\n", j, quest[0][j]);
+		// printf("quest[0][%d] : %s\n", j, quest[0][j]); controle
 		
-		sprintf(valores[0][j-2], "item_%d", j-1);
-		printf("valores[0][%d] : %s\n", j-2, valores[0][j-2]);
+		// sprintf(valores[0][j-2], "item_%d", j-1); // nÃ£o estÃ¡ em uso...
+		// printf("valores[0][%d] : %s\n", j-2, valores[0][j-2]); controle
 	}
 	for (i=1; i<qtFrases+1; i++) {
 		sprintf(quest[i][0], "%d", i);
-		printf("quest[%d][0] : %s\n", i, quest[i][0]);
+		// printf("quest[%d][0] : %s\n", i, quest[i][0]); // controle
 	}
 	
 	for (i=1; i<qtFrases+1; i++) {
@@ -215,12 +215,12 @@ void cadastrar() { // CADASTRAR  // CADASTRAR  // CADASTRAR  // CADASTRAR  // CA
 	fclose(questNovo);
 	
 	sleep(2);
-	printf(" A função CADASTRAR encerrou...\n");
+	printf(" A funÃ§Ã£o CADASTRAR encerrou...\n");
 	
 }
 
 void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //  REALIZAR  //
-	printf(" A função REALIZAR foi iniciada...\n\n");
+	printf(" A funÃ§Ã£o REALIZAR foi iniciada...\n\n");
 	sleep(2);
 	system("cls");
 	setlocale(LC_ALL,"");
@@ -237,7 +237,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	}
 	char buffer2[j][255];
 	
-	printf(" Escolha o questionário dentre os listados: \n");
+	printf(" Escolha o questionÃ¡rio dentre os listados: \n");
 	
 	showQuest = fopen("questRegistrados.txt", "r");
 	int i = 0;
@@ -254,7 +254,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	int aux;
 	scanf(" %d", &aux);
 	while(aux < 1 || aux > j) {
-		printf(" Número inválido... Favor escolher um dos números listados acima: ");
+		printf(" NÃºmero invÃ¡lido... Favor escolher um dos nÃºmeros listados acima: ");
 		scanf(" %d", &aux);
 	}
 	
@@ -310,12 +310,12 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     int x;
     x = 0;    
  //   char perfil[4][30];    
- //   strcpy(perfil[0], "Cinestésico");
+ //   strcpy(perfil[0], "CinestÃ©sico");
  //   strcpy(perfil[1], "Auditivo");
  //   strcpy(perfil[2], "Visual");
  //   strcpy(perfil[3], "Digital");
 
-    char str1[10][70];//matriz de 10 strings com 70 bytes cada (sujeito a mudança).
+    char str1[10][70];//matriz de 10 strings com 70 bytes cada (sujeito a mudanÃ§a).
     char letra[qtItens];
     for (i=0; i<qtItens; i++) {
     	letra[i] = 65 + i;
@@ -328,7 +328,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 		buffer2[aux-1][strlen(buffer2[aux-1])-1] = 0;
 	}
     FILE* fp = fopen(buffer2[aux-1], "r");
-    if (!fp) { //Mensagem de erro caso o arquivo não esteja presente no diretório
+    if (!fp) { //Mensagem de erro caso o arquivo nÃ£o esteja presente no diretÃ³rio
    		printf("Erro na abertura do arquivo...\n");
 	}
 	char buffer4[350];
@@ -357,13 +357,13 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     i = -1;
     y = 1;
     fp = fopen(buffer2[aux-1], "r"); //Nesse arquivo, a maior string possui 69 caracteres, por isso aloquei 70 bytes por string
-    if (!fp) //Mensagem de erro caso o arquivo não esteja presente no diretório
+    if (!fp) //Mensagem de erro caso o arquivo nÃ£o esteja presente no diretÃ³rio
         printf("Erro na abertura do arquivo...\n");
 
     else {
 
-        char frase[350]; //Buffer contém memória temporária para armazenar cada linha do arquivo
-        char ignore[350]; //Buffer contém memória temporária para armazenar cada linha do arquivo
+        char frase[350]; //Buffer contÃ©m memÃ³ria temporÃ¡ria para armazenar cada linha do arquivo
+        char ignore[350]; //Buffer contÃ©m memÃ³ria temporÃ¡ria para armazenar cada linha do arquivo
 
         while (fgets(frase, 350, fp)) { //Leitura da linha inteira e armazenamento em frase
                 if(i == -1){
@@ -380,15 +380,15 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 						} else if (aux1 == 1) {
 							printf(" 1 aquela que menos te descreve.\n");
 						} else {
-							printf(" %d a próxima melhor descrição;\n", aux1);
+							printf(" %d a prÃ³xima melhor descriÃ§Ã£o;\n", aux1);
 						}
 					}
                     /* printf(" 4 a que melhor te descreve;\n");
-                    printf(" 3 a próxima melhor descrição;\n");
-                    printf(" 2 a próxima melhor;\n");
+                    printf(" 3 a prÃ³xima melhor descriÃ§Ã£o;\n");
+                    printf(" 2 a prÃ³xima melhor;\n");
                     printf(" 1 aquela que menos te descreve.\n"); */ 
                     
-                    printf("\n Por favor, não digite o mesmo número 2 vezes.\n\n");
+                    printf("\n Por favor, nÃ£o digite o mesmo nÃºmero 2 vezes.\n\n");
 
 
                     char* imprimir = strtok(frase, "[=,]"); //Quebra a string "buffer" sempre que encontra = ou , (ou qualquer outro parametro) e armazena em "imprimir"
@@ -396,13 +396,13 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
                     while (imprimir) {
 
                     if (*imprimir <= 53 && *imprimir>=48) {
-                        // printf(" %d\n", *imprimir-48); // caso ele leia um número entre 0 e 5, ele printará o número. Serve para ler o No das questões e o valor resposta delas.
+                        // printf(" %d\n", *imprimir-48); // caso ele leia um nÃºmero entre 0 e 5, ele printarÃ¡ o nÃºmero. Serve para ler o No das questÃµes e o valor resposta delas.
                     } else {
                         if (k == -1) {
                     		printf("%s\n", imprimir);
                     		k++;
 			} else {
-				printf(" %c -) %s\n", letra[k], imprimir); //senão, printará a string de texto. Usada pra ler registrar as questões e possíveis respostas.
+				printf(" %c -) %s\n", letra[k], imprimir); //senÃ£o, printarÃ¡ a string de texto. Usada pra ler registrar as questÃµes e possÃ­veis respostas.
                     		k++;
 			}
                     }
@@ -419,14 +419,14 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
                                 
                                 if (qtItens <= 4) {
                                 	if( x < 1 || x > 4){
-                                    printf(" Número inválido");
+                                    printf(" NÃºmero invÃ¡lido");
                                     y = 1;
                                     getchar();
 	                                }
 	                                else {
 	                                    y = 0;
 	                                    if(ver[x-1] == 1) {
-	                                        printf(" Você não pode repetir os números -- Escreva novamente a resposta \n");
+	                                        printf(" VocÃª nÃ£o pode repetir os nÃºmeros -- Escreva novamente a resposta \n");
 	                                        y = 1;
 	                                    }
 	                                    else {
@@ -435,14 +435,14 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	                                }
 								} else {
 									if( x < 1 || x > qtItens){
-                                    printf(" Número inválido");
+                                    printf(" NÃºmero invÃ¡lido");
                                     y = 1;
                                     getchar();
 	                                }
 	                                else {
 	                                    y = 0;
 	                                    if(ver[x-1] == 1) {
-	                                        printf(" Você não pode repetir os números -- Escreva novamente a resposta \n");
+	                                        printf(" VocÃª nÃ£o pode repetir os nÃºmeros -- Escreva novamente a resposta \n");
 	                                        y = 1;
 	                                    }
 	                                    else {
@@ -469,7 +469,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
     strcpy(bufferNome, "RESULTADO_");
     strcat(strcat(strcat(strcat(bufferNome, nome), " "), pront), ".txt");
     replacestr(bufferNome," ", "_");
-	printf(" O arquivo %s foi gerado...\n Nele você poderá ver o resultado do questionário.", bufferNome);
+	printf(" O arquivo %s foi gerado...\n Nele vocÃª poderÃ¡ ver o resultado do questionÃ¡rio.", bufferNome);
     questResp = fopen(bufferNome, "w");
     
 	int total = 0;
@@ -508,24 +508,24 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	// printf("\n %s\n %s", buffer1, buffer2[aux-1]); // controle
 	// getch();
 	
-    //char fras[300] = "Algumas pessoas captam melhor as mensagens do mundo exterior através da audição, são as pessoas chamadas auditivas.\n";
+    //char fras[300] = "Algumas pessoas captam melhor as mensagens do mundo exterior atravÃ©s da audiÃ§Ã£o, sÃ£o as pessoas chamadas auditivas.\n";
     fprintf(questResp,"%s", "\n=========================================================================================================================================\n");
     for (i=0; i<qtItens; i++) {
     	fprintf(questResp,"%s\n", descr[i]);
     	// printf(" %s\n", descr[i]); // controle
 	}
-    fprintf(questResp,"O seu perfil representacional é: %s", perfilBigger);
+    fprintf(questResp,"O seu perfil representacional Ã©: %s", perfilBigger);
     fprintf(questResp, "\n=========================================================================================================================================\n");
 	
 	fclose(valoresQuest);
     fclose(questResp);
 	
 	sleep(1);
-	printf("\n\n A função REALIZAR encerrou...\n");
+	printf("\n\n A funÃ§Ã£o REALIZAR encerrou...\n");
 }
 
 void visualizar() {
-	printf(" A função VISUALIZAR foi iniciada...\n");
+	printf(" A funÃ§Ã£o VISUALIZAR foi iniciada...\n");
 	sleep(2);
 	
 	FILE *visQuest = fopen("questRegistrados.txt", "r");
@@ -538,7 +538,7 @@ void visualizar() {
 	}
 	char buffer2[j][255];
 	
-	printf(" Escolha o questionário dentre os listados: \n");
+	printf(" Escolha o questionÃ¡rio dentre os listados: \n");
 	
 	visQuest = fopen("questRegistrados.txt", "r");
 	int i = 0;
@@ -555,7 +555,7 @@ void visualizar() {
 	int aux;
 	scanf(" %d", &aux);
 	while(aux < 1 || aux > j) {
-		printf(" Número inválido... Favor escolher um dos números listados acima: ");
+		printf(" NÃºmero invÃ¡lido... Favor escolher um dos nÃºmeros listados acima: ");
 		scanf(" %d", &aux);
 	}
 	
@@ -617,11 +617,11 @@ void visualizar() {
 	
 	
 	sleep(1);
-	printf("\n\n A função REALIZAR encerrou...\n");
+	printf("\n\n A funÃ§Ã£o REALIZAR encerrou...\n");
 }
 
 void sobre() {
-	printf(" A função SOBRE foi iniciada...\n");
+	printf(" A funÃ§Ã£o SOBRE foi iniciada...\n");
 	sleep(2);
 	FILE *showQuest = fopen("questRegistrados.txt", "r");
 	
@@ -633,7 +633,7 @@ void sobre() {
 	}
 	char buffer2[j][255];
 	
-	printf("\n Escolha o questionário dentre os listados: \n");
+	printf("\n Escolha o questionÃ¡rio dentre os listados: \n");
 	
 	showQuest = fopen("questRegistrados.txt", "r");
 	int i = 0;
@@ -651,7 +651,7 @@ void sobre() {
 	int aux;
 	scanf(" %d", &aux);
 	while(aux < 1 || aux > j) {
-		printf(" Número inválido... Favor escolher um dos números listados acima: ");
+		printf(" NÃºmero invÃ¡lido... Favor escolher um dos nÃºmeros listados acima: ");
 		scanf(" %d", &aux);
 	}
 	
@@ -674,7 +674,7 @@ void sobre() {
 	FILE *sobre = fopen(buffer1, "r");
 	if (!sobre) {
 		printf("Erro na abertura do arquivo...\n");
-	} //Mensagem de erro caso o arquivo não esteja presente no diretório
+	} //Mensagem de erro caso o arquivo nÃ£o esteja presente no diretÃ³rio
         
 	
 	while (fgets(buffer3, 155, sobre)) {
@@ -684,25 +684,25 @@ void sobre() {
 	getch();
 	printf("\n\n Pressione qualquer tecla para continuar...");
 	sleep(1);
-	printf("\n\n A função SOBRE encerrou...\n");
+	printf("\n\n A funÃ§Ã£o SOBRE encerrou...\n");
 }
 
 void fim() {
-	printf(" A função FIM foi iniciada...\n");
+	printf(" A funÃ§Ã£o FIM foi iniciada...\n");
 	exit(1);
 }
 
-int replacestr(char *line, const char *search, const char *replace) //Declaração da função replacestr() que será usada para substituir " " por "_".
+int replacestr(char *line, const char *search, const char *replace) //DeclaraÃ§Ã£o da funÃ§Ã£o replacestr() que serÃ¡ usada para substituir " " por "_".
 {
    int count;
-   char *sp; // começo do padrão para leitura da string
-// Tire o comentário abaixo ? para que a função printe os parâmetros usados: line, search e replace
+   char *sp; // comeÃ§o do padrÃ£o para leitura da string
+// Tire o comentÃ¡rio abaixo ? para que a funÃ§Ã£o printe os parÃ¢metros usados: line, search e replace
    //printf("replacestr(%s, %s, %s)\n", line, search, replace); 
 	
-   if ((sp = strstr(line, search)) == NULL) { // Se ele não encontra a agulha "search" no palheiro "line", retorna 0 pois não há o que substituir
+   if ((sp = strstr(line, search)) == NULL) { // Se ele nÃ£o encontra a agulha "search" no palheiro "line", retorna 0 pois nÃ£o hÃ¡ o que substituir
       return(0);
    }
-// definição inicial das variáveis necessárias:
+// definiÃ§Ã£o inicial das variÃ¡veis necessÃ¡rias:
    count = 1;
    int sLen = strlen(search); //search length
    int rLen = strlen(replace); //replace length
@@ -719,9 +719,9 @@ int replacestr(char *line, const char *search, const char *replace) //Declaração
       char *dst = sp + rLen + tLen;
       while(dst >= stop) { *dst = *src; dst--; src--; }
    }
-   memcpy(sp, replace, rLen); //copia "replace" pra dentro de "sp" alocando "rLen" bytes de memória
+   memcpy(sp, replace, rLen); //copia "replace" pra dentro de "sp" alocando "rLen" bytes de memÃ³ria
 
-   count += replacestr(sp + rLen, search, replace); //contador pra registrar quantas substituições foram feitas e efetuálas em cada repetição de "search" após a primeira
+   count += replacestr(sp + rLen, search, replace); //contador pra registrar quantas substituiÃ§Ãµes foram feitas e efetuÃ¡las em cada repetiÃ§Ã£o de "search" apÃ³s a primeira
 
    return(count);
 }
