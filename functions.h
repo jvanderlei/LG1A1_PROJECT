@@ -568,10 +568,12 @@ void visualizar() {
 	system("cls");
 	
 	// buffer2[aux-1][strlen(buffer2[aux-1])-1] = 0;
-	printf("1 %s\n2 %s\n\n", buffer1, buffer2[aux-1]); // controle
-	getch();
+	//printf("1 %s\n2 %s\n\n", buffer1, buffer2[aux-1]); // controle
+	// getch();
 
-	int k;
+	if (aux != j) {
+		buffer2[aux-1][strlen(buffer2[aux-1])-1] = 0;
+	}
     visQuest = fopen(buffer2[aux-1], "r");
     if (!visQuest)
         printf("Can't open file\n");
@@ -610,14 +612,10 @@ void visualizar() {
         // Close the file
         fclose(visQuest);
     }
+	printf("\n Pressione qualquer tecla para continuar...\n");
 	getch();
-	
-	
-	
-	
-	
 	sleep(1);
-	printf("\n\n A função REALIZAR encerrou...\n");
+	printf("\n A função REALIZAR encerrou...\n");
 }
 
 void sobre() {
