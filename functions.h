@@ -681,8 +681,9 @@ void sobre() {
 		printf("%s", buffer3);
 	}
 	fclose(sobre);
-	getch();
+
 	printf("\n\n Pressione qualquer tecla para continuar...");
+	getch();
 	sleep(1);
 	printf("\n\n A função SOBRE encerrou...\n");
 }
