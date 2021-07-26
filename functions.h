@@ -395,7 +395,7 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 					k = -1;
                     while (imprimir) {
 
-                    if (*imprimir <= 53 && *imprimir>=48) {
+                    if (*imprimir <= 57 && *imprimir>=48) {
                         // printf(" %d\n", *imprimir-48); // caso ele leia um número entre 0 e 5, ele printará o número. Serve para ler o No das questões e o valor resposta delas.
                     } else {
                         if (k == -1) {
