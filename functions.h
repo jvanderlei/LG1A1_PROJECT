@@ -519,7 +519,14 @@ void realizar(char nome[255], char pront[10]) { //  REALIZAR  //  REALIZAR  //  
 	
 	fclose(valoresQuest);
     fclose(questResp);
-	
+	FILE *printResp;
+    printResp = fopen(bufferNome, "r");
+
+    char fraseResult[350];
+    while (fgets(fraseResult, 350, printResp)) {
+        printf("%s\n", fraseResult);
+    }//Leitura da linha inteira e armazenamento em frase
+	fclose(printResp);
 	sleep(1);
 	printf("\n\n A função REALIZAR encerrou...\n");
 }
